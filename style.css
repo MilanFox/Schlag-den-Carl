@@ -1,81 +1,73 @@
-body{
-    width: 98.5vw;
-    height: 98.5vh;
+body {
+
+
+    display: flex;
+    flex-direction: column;
+
+    color: black;
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
 
     background-color: black;
     background-image: url(assets/sunburst.svg);
     background-repeat: no-repeat;
     background-size: cover;
 
-    display:flex;
-    flex-direction: column;
-
-    color: black;
-}
-
-.main {
-    flex: 4;
+    z-index: -1;
 }
 
 .scoreContainer {
-    width: 60vh;
-    height: 60vh;
+    width: 700px;
 
-    margin-top: 5vh;
+    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
-    padding: 2%;
+    padding: 32px;
 
-    border-radius: 2vw;
+    border-radius: 40px;
     border-color: white;
     border-style: outset;
     border-width: 3px;
 
-    background: rgb(255,242,0);
-    background: radial-gradient(circle, rgba(255,242,0,1) 0%, rgba(255,152,38,0.8) 100%);
+    background: rgb(255, 242, 0);
+    background: radial-gradient(circle, rgba(255, 242, 0, 1) 0%, rgba(255, 152, 38, 0.8) 100%);
 }
 
 .scoreTop {
-    height: 10%;
-
     display: flex;
     flex-direction: row;
-    gap: 2%;
+    gap: 10px;
     justify-content: center;
 }
 
-/* todo: kein perfektes Quadrat, Textgröße skaliert falsch*/
 .scoreTop_box {
     background-color: white;
-    width: 5%;
-    height: 0;
-    padding-top: 5%;
+    width: 36px;
+    height: 36px;
     position: relative;
 
-    margin: 0;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-
     font-family: 'Rajdhani', sans-serif;
-    font-size: 150%;
+    font-size: 24px;
     font-weight: bold;
+    line-height: 37px;
+    text-align: center;
     border: solid 1px black;
-}
-
-.box_content {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
 
 .scoreBot {
     margin-top: 5%;
     height: 85%;
-    display:flex;
+    display: flex;
     flex-direction: row;
     gap: 5%;
 }
@@ -100,7 +92,7 @@ body{
 
 .candidate_score_total {
     background-color: black;
-    height:30%;
+    height: 30%;
     border: solid 1px white;
 
     /*todo: Schriftgröße ist Unsinn*/
