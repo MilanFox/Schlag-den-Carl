@@ -1,10 +1,9 @@
 body {
-
-
     display: flex;
     flex-direction: column;
 
-    color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
 }
 
 .background {
@@ -46,20 +45,20 @@ body {
 .scoreTop {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
 }
 
-.scoreTop_box {
+.score_box {
     background-color: white;
-    width: 36px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
     position: relative;
 
     font-family: 'Rajdhani', sans-serif;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
-    line-height: 37px;
+    line-height: 50px;
     text-align: center;
     border: solid 1px black;
 }
@@ -81,46 +80,56 @@ body {
 }
 
 .candidate_name {
-    height: 15%;
+    height: 100px;
 
-    /*todo: Schriftgröße ist Unsinn*/
     text-align: center;
     font-family: 'Impact', sans-serif;
     -webkit-text-stroke: 2px white;
-    font-size: 400%;
+    font-size: 70px;
 }
 
 .candidate_score_total {
     background-color: black;
-    height: 30%;
+    height: 180px;
     border: solid 1px white;
 
-    /*todo: Schriftgröße ist Unsinn*/
     color: white;
     font-family: 'Rajdhani', sans-serif;
-    font-size: 800%;
+    font-size: 150px;
     font-weight: bold;
     text-align: right;
 
+    margin-top: 25px;
     padding: 0 5%;
 }
 
 .candidate_score_progressBar {
     background-color: black;
-    height: 5%;
+    height: 20px;
     border: solid 1px white;
     /* todo: Noch nicht smart - Umrechnung in Prozent und unabhängig steuerbar? => per ID? */
-    box-shadow: inset 150px 0 0 0 red;
+    box-shadow: inset 0 0 0 0 red;
+    margin-top: 25px;
 }
 
 .candidate_score_detailView {
-    background-color: white;
-    height: 35%;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
 }
 
 .logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 15vh;
+    margin-top: 75px;
+    height: 200px;
+}
+
+.scoreBoxBlanc {
+    background-color: black;
+    border-color: white;
 }
