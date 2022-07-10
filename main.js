@@ -3,22 +3,24 @@
 const scoreboardFunctions = {
   /**
    * Assigns point to either one of the opponents
-   * @param scoreboxClicked {object} Selected Scoreboard-Box
+   * @param scoreboxClicked {HTMLElement} Selected Scoreboard-Box
    */
   assignPoint(scoreboxClicked) {
-    const score_id = scoreboxClicked.innerText
-    for (const score_box of score_boxes) {
-      if (score_box.innerText === score_id ) {
-        score_box.classList.add("scoreBoxBlanc")
+    if (scoreboxClicked.classList.contains("scoreBoxBlanc")) {
+      const score_id = scoreboxClicked.innerText
+      for (const score_box of score_boxes) {
+        if (score_box.innerText === score_id ) {
+          score_box.classList.add("scoreBoxBlanc")
+        }
       }
+      scoreboxClicked.classList.remove("scoreBoxBlanc")
+      scoreboardFunctions.emit("scoreboardChanged")
     }
-    scoreboxClicked.classList.remove("scoreBoxBlanc")
-    scoreboardFunctions.emit("scoreboardChanged")
   },
   /**
    * Recalculates the Score and writes it into Score_Total DIV
    * Sets Progress bar according to score reached
-   * @param candidate {object} Candidate to calculate score
+   * @param candidate {HTMLElement} Candidate to calculate score
    */
   recalculateScore(candidate) {
     // Calculate Score
@@ -31,7 +33,7 @@ const scoreboardFunctions = {
       }
     }
     totalScoreBox.innerText = score
-    //Set Progress Bar
+    // Set Progress Bar
     const max_score = 55
     const progressBarSlider = candidate.querySelector(".progressBar_slider")
     let progressBarValue = ((100 / max_score) * score) * 2
@@ -76,3 +78,17 @@ for (const scoreboxClicked of score_boxes) {
     scoreboardFunctions.assignPoint(scoreboxClicked)
   })
 }
+
+const opponent_name =  document.getElementById("opponent_name")
+/**
+ * Changes Name of Opponent
+ */
+function changeNameOfOpponent(){
+  let name = prompt("Name des Gegners:");
+  if (name!=null){
+    opponent_name.innerText = name.toUpperCase()
+  }
+}
+opponent_name.addEventListener("click", () => {
+  changeNameOfOpponent()
+})
